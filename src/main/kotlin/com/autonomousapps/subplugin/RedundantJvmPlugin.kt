@@ -36,10 +36,12 @@ class RedundantJvmPlugin(
   }
 
   internal fun withJava(java: Provider<Boolean>) {
+    project.logger.quiet("$project has java -> ${java.get()}")
     javaSource.set(java)
   }
 
   internal fun withKotlin(kotlin: Provider<Boolean>) {
+    project.logger.quiet("$project has kotlin -> ${kotlin.get()}")
     kotlinSource.set(kotlin)
   }
 }

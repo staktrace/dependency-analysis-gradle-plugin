@@ -45,6 +45,9 @@ abstract class DetectRedundantJvmPluginTask : DefaultTask() {
     val behavior = redundantPluginsBehavior.get()
     val shouldIgnore = behavior is Ignore
 
+    logger.quiet("behavior: $behavior")
+    logger.quiet("shouldIgnore: $shouldIgnore")
+    logger.quiet("hasKotlin: ${hasKotlin.get()}")
     val pluginAdvices =
       if (!hasKotlin.get() && !shouldIgnore) mutableSetOf(PluginAdvice.redundantKotlinJvm())
       else mutableSetOf()
